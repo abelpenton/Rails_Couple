@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  get 'article/index'
-  get "special", to: "article#index"
+  get 'articles/index'
+  get "special", to: "articles#index"
 
-  resources :article
+  resources :articles
 
-  root 'article#index'
+  root 'articles#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

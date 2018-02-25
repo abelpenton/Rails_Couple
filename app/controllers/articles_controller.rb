@@ -1,4 +1,4 @@
-class ArticleController < ApplicationController
+class ArticlesController < ApplicationController
   
   #Get /articles
   def index
@@ -9,4 +9,11 @@ class ArticleController < ApplicationController
   def show
     @article = Article.find(params[:id])
   end
+
+  #Get /articles/new
+  def new
+    @article = Article.new    
+  end
+
+
 end
