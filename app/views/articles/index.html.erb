@@ -3,4 +3,8 @@
     <div>
         <%= article.body %>
     </div>
+    <%= link_to "Show", article_path(article) %> |
+    <%= link_to "Edit" , edit_article_path(article) %>
 <%end%>
+<br>
+<%= link_to "Create New Article", new_article_path %>
