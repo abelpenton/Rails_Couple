@@ -1,0 +1,20 @@
+<div class="div1">   
+    <%= form_for(@article) do |f| %>
+        <% @article.errors.full_messages.each do |e| %>
+            <div>
+               * <%=e%>
+            </div>
+        <%end%>
+        <div class="field">
+        <%= f.text_field :title, placeholder: "Title", class:"form-control"%>
+        </div>
+
+        <div class="field">
+            <%= f.text_area :body, placeholder: "Article body here" , style: "height:250px;", class:"form-control" %>
+        </div>
+
+        <div class="field">
+            <%= f.submit "Save" , class: "btn btn-primary" %>
+        </div>
+    <%end%>
+</div>
