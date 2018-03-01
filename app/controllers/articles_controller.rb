@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   
+  before_action :set_article, except: [:index,:new,:create]  
   #Get /articles
   def index
     @articles = Article.all
@@ -7,7 +8,6 @@ class ArticlesController < ApplicationController
 
   #Get /articles/:id
   def show
-    @article = Article.find(params[:id])
   end
 
   #Get /articles/new
@@ -16,12 +16,9 @@ class ArticlesController < ApplicationController
   end
   
   def edit
-    @article = Article.find(params[:id])  
   end
   
   def update
-    @article = Article.find(params[:id])
-
     if @article.update(article_params)
       redirect_to @article
     else
@@ -41,6 +38,9 @@ class ArticlesController < ApplicationController
 
   private 
 
+  def set_article
+    @article = Article.find(params[:id])
+  end
   #method for security updload
   def article_params
     params.require(:article).permit(:title,:body)  
