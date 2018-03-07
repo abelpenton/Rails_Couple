@@ -9,28 +9,24 @@
   </head>
 
   <body>
-    <header>
-      <nav class="nav navbar-collapse">
+    
+    
+      <nav>
+        <h1 id="main-logo">We Got Singles</h1>
         <ul>
-          <li>
-            <%= link_to "Inicio", root_path %>
-          </li>
-
-          <li>
-            Diseño
-          </li>
-
-          <li>
-            Programación
-          </li>
-
-
-        <li>
-           Tecnología
-        </li>
+          <li><%= link_to 'Sign up', new_user_registration_path %></li>
+          <li><%= link_to 'Sign in', new_user_session_path %></li>
+          <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>         
         </ul>
       </nav>
-    </header>
-    <%= yield %>
+    
+      <div class='notice-parent'>
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+      </div>
+      <main>
+        <%= yield %>
+      </main>
+    
   </body>
 </html>
