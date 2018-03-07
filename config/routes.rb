@@ -8,6 +8,15 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  resources :users, :only => [:show]
+  resource :user, :only => [] do
+    member do
+      put :update, :as => :update_profile
+      get :edit
+      get :me
+    end
+  end
+  
   root 'articles#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
