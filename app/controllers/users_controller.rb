@@ -22,6 +22,6 @@ class UsersController < ApplicationController
   
     private
     def allowed_params #whitelist
-      params.require(:user).permit(:firstname, :username, :age , :image_url, :avatar) #for each attribute in the model /white_listed
+      params.require(:user).permit(:firstname, :lastname, :username, :age , :image_url, :avatar, :occupation, :sex, :preference, :about ) #for each attribute in the model /white_listed
     end  
 end

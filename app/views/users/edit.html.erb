@@ -10,6 +10,10 @@
         <%= f.text_field :firstname %>
       <% end %>
 
+    <%= field_set_tag do %>
+      <%= f.label :lastname %>
+      <%= f.text_field :lastname %>
+    <% end %>
     
       <%= field_set_tag do %>
         <%= f.label :username %>
@@ -21,7 +25,25 @@
         <%= f.text_field :age %>
       <% end %>
       
+      <%= field_set_tag do %>
+        <%= f.label :sex, "Sex" %> 
+        <%= f.text_field :sex , :placeholder => "You are a Men or Lady?"%>
+      <% end %>
 
+      <%= field_set_tag do %>
+      <%= f.label :occupation %> 
+      <%= f.text_field :occupation %>
+    <% end %>
+  
+    <%= field_set_tag do %>
+      <%= f.label :preference %>
+      <%= f.text_field :preference, :placeholder => "You want a Men or Lady?" %>
+    <% end %>
+  
+    <%= field_set_tag do %>
+      <%= f.label :about %> 
+      <%= f.text_area(:about, :cols => 50, :rows => 20, :placeholder => "Tell us about yourself ... ", :class => "about") %>
+    <% end %>
 
       <%= field_set_tag do %>
         <%= f.label :avatar %>
