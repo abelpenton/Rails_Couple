@@ -17,6 +17,9 @@ nav {
     display: inline-block;
   }
   
+  body #main-image {
+    background: image-url('imagesPAREJAS1.jpg') no-repeat; 
+  }
   nav ul {
     font-size: 0.8em;
     float: right;

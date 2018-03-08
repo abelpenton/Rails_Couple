@@ -8,12 +8,17 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <style>
+    body {
+      background-image: url("imagesPAREJAS1.jpg");
+    }
+  </style>
   <body>
-    
     
       <nav>
         <h1 id="main-logo">We Got Singles</h1>
         <ul>
+          <li> <%= link_to 'Home', articles_path %></li>
           <%if user_signed_in?%>
             <li><%= link_to 'View Profile', me_user_path %></li>
             <li><%= link_to 'Edit Settings', edit_user_registration_path %></li>
