@@ -1,0 +1,41 @@
+@import 'fonts.css.scss';
+
+nav {
+  background: #333;
+  padding: 1rem;
+  padding: 1em;
+  border-bottom: 2px solid #999;
+}
+
+nav #main-logo {
+  @include logo-font;
+  font-size: 2rem;
+  font-size: 2em;
+  background: image-url('logo.png') no-repeat;
+  height: 62px;
+  line-height: 62px;
+  padding-left: 82px;
+  width: 10em;
+  display: inline-block;
+}
+
+nav ul {
+  font-size: 0.8em;
+  float: right;
+  padding: 0;
+}
+
+nav ul a {
+  color: white;
+  border-right: 1px solid #FFF;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+nav ul li:last-child a {
+  border:0;
+}
+
+nav ul li {
+  display: inline-block;
+}
