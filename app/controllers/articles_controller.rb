@@ -1,13 +1,14 @@
 class ArticlesController < ApplicationController
-  
+  before_action :authenticate_user!
   before_action :set_article, except: [:index,:new,:create]  
   #Get /articles
   def index
-    @articles = Article.all
   end
 
   #Get /articles/:id
   def show
+    @user = User.find(params[:id])
+    redirect_to show_user_path
   end
 
   #Get /articles/new
