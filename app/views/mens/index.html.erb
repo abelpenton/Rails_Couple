@@ -6,6 +6,11 @@
 <div>
     <%= user.sex %>
     <%= user.age %>
+    <% if user.id != current_user.id %>
+    <div class="item">
+        <%= user.firstname %> <%= link_to 'Chat', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post'%>
+    </div>
+<% end %>
     <%= link_to "About He", user_path(user) %>
 </div>
 
