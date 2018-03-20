@@ -16,6 +16,10 @@ Rails.application.routes.draw do
       get :me
     end
   end
+
+  resources :conversations do
+    resources :messages
+  end
   
   resources :ladys
   resources :mens
