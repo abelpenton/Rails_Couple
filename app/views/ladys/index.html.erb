@@ -1,19 +1,32 @@
 <% @users.each do |user| %>
-<%= image_tag(user.avatar.url , class: "avatar") if user.avatar? %>
+<% if user.id != current_user.id %>
+    <%= image_tag(user.avatar.url , class: "avatar") if user.avatar? %>
 
-<h1> <%= user.username %> </h1>
-<div>
-    <%= user.sex %>
-    <%= user.age%>
-    <% if user.id != current_user.id %>
-    <div class="item">
-        <%= user.firstname %> <%= link_to 'Chat', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post'%>
+    <div>
+        
+            <div class="item">
+                <%= user.firstname %> <%= link_to 'Chat', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post'%>
+            </div>
+            <%= link_to "About She", user_path(user) %>
+            
     </div>
 <% end %>
-    <%= link_to "About She", user_path(user) %>
-</div>
 
 <%end%>
+
+
+<form action="/ladys" method="get">
+    Preference
+    <br>
+    <input type="radio" id="preference" name="[preference]" value="Men" checked>Men<br>
+    <input type="radio" id="preference" name="[preference]" value="Lady">Lady<br>
+
+    Ages from: <input id="min_age" name="[min_age]" value="18" type="text" class="gteq" />
+    to <input id="max_age" name="[max_age]" value="80" type="text" class="gteq" />
+
+    <input class="button" type="submit" value="Filter" />
+    
+</form>
 
 <%= will_paginate @users %>
 <br>
