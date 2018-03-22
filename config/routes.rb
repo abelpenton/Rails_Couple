@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     resources :messages
   end
   
+  resources :relationships
   resources :ladys
   resources :mens
   root 'articles#index'

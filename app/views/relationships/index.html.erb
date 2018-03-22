@@ -1,0 +1,50 @@
+<h3>Friend</h3>
+<% @users.each do |user| %>
+<% if user.id != current_user.id && Relationship.between(current_user.id, user.id).present? && Relationship.between1(current_user.id, user.id).present? %>
+    <%= image_tag(user.avatar.url , class: "avatar") if user.avatar? %>
+    <div>
+            <div class="item">
+                <%= user.firstname %> <%= link_to 'Chat', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post'%>
+            </div> 
+    </div>
+<% end %>
+
+<%end%>
+
+<div class="ui segment">
+    <h3>Enviadas</h3>
+   
+    <div class="ui list">
+     <div class="item">
+      <% @relationships.each do |relationship| %>
+      <% if relationship.sender_id == current_user.id %>
+         <% recive = User.find(relationship.recive_id) %>
+         <% if !Relationship.between1(current_user.id, recive.id).present? %>
+            <%= recive.firstname %>
+         <%end%>
+       <% end %>
+       
+     <% end %>
+     </div>
+    </div>
+</div>
+
+<div class="ui segment">
+    <h3>Recividas</h3>
+   
+    <div class="ui list">
+     <div class="item">
+      <% @relationships.each do |relationship| %>
+      <% if relationship.recive_id == current_user.id%>
+        <% sender = User.find(relationship.sender_id) %>
+        <% if !Relationship.between1(sender.id, current_user.id).present? %>
+            <%= sender.firstname  %>
+            <%= link_to 'Aceptar', relationships_path(sender_id: current_user.id, recive_id: sender.id), method: 'post'%>
+        <%end%>
+      <% end %>
+       
+     <% end %>
+     </div>
+    </div>
+</div>
+   
