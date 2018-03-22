@@ -16,12 +16,15 @@ class UsersController < ApplicationController
   
     def update
       @user = current_user
-      @user.update(allowed_params)
-      redirect_to me_user_path
+      if @user.update(allowed_params)
+        redirect_to me_user_path
+      else
+       redirect_to edit_user_path
+      end
     end
   
     private
-    def allowed_params #whitelist
+    def allowed_params 
       params.require(:user).permit(:firstname, :lastname, :username, :age , :image_url, :avatar, :occupation, :sex, :preference, :about ) #for each attribute in the model /white_listed
     end  
 end

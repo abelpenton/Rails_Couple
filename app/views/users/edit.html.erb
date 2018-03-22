@@ -26,8 +26,13 @@
       <% end %>
       
       <%= field_set_tag do %>
-        <%= f.label :sex, "Sex" %> 
-        <%= f.text_field :sex , :placeholder => "You are a Men or Lady?"%>
+        <%= f.label :sex, "Sex" %>
+        <br>
+        <%= f.label :sex, "Men" %> 
+        <%= f.radio_button :sex, "Men" %>
+        <br>
+        <%= f.label :sex, "Lady" %>         
+        <%= f.radio_button :sex, "Lady" %>
       <% end %>
 
       <%= field_set_tag do %>
@@ -36,8 +41,13 @@
     <% end %>
   
     <%= field_set_tag do %>
-      <%= f.label :preference %>
-      <%= f.text_field :preference, :placeholder => "You want a Men or Lady?" %>
+      <%= f.label :preference, "Preference" %>
+      <br>
+      <%= f.label :preference, "Men" %> 
+      <%= f.radio_button :preference, "Men" %>
+      <br>
+      <%= f.label :preference, "Lady" %>         
+      <%= f.radio_button :preference, "Lady" %>
     <% end %>
   
     <%= field_set_tag do %>
