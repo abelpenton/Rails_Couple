@@ -4,7 +4,7 @@
     <%= image_tag(user.avatar.url , class: "avatar") if user.avatar? %>
     <div>
             <div class="item">
-                <%= user.firstname %> <%= link_to 'Chat', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post'%>
+                <%= user.username %> <%= link_to 'Chat', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post'%>
             </div> 
     </div>
 <% end %>
@@ -20,7 +20,7 @@
       <% if relationship.sender_id == current_user.id %>
          <% recive = User.find(relationship.recive_id) %>
          <% if !Relationship.between1(current_user.id, recive.id).present? %>
-            <%= recive.firstname %>
+            <%= recive.username %>
          <%end%>
        <% end %>
        
@@ -38,7 +38,7 @@
       <% if relationship.recive_id == current_user.id%>
         <% sender = User.find(relationship.sender_id) %>
         <% if !Relationship.between1(sender.id, current_user.id).present? %>
-            <%= sender.firstname  %>
+            <%= sender.username  %>
             <%= link_to 'Aceptar', relationships_path(sender_id: current_user.id, recive_id: sender.id), method: 'post'%>
         <%end%>
       <% end %>

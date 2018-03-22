@@ -3,7 +3,7 @@
 <% @users.each do |user| %>
     <% if user.id != current_user.id %>
         <%= image_tag(user.avatar.url , class: "avatar") if user.avatar? %>
-        <%= user.firstname%>
+        <%= user.username%>
         <div>
             <% if !Relationship.between(current_user.id, user.id).present?%>
                 <div class="item">
